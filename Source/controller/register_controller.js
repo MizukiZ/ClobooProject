@@ -22,6 +22,15 @@ $('#spinIcon').modal({
 
         if (data == "registered") {
           // successfully registered
+          
+          //  send welcom email to registerd user
+          $.post("../_helper/WelcomeEmail.php",
+                $("#registerForm").serialize() + '&send=1'
+                )
+          .done(()=>{
+            // after send message do sth
+          })
+          
            $("#spinIcon").hide();
           // redirect to home
           window.location.replace("http://advancedweb-clobooait383893.codeanyapp.com/Source/view/home.php");

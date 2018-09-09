@@ -8,6 +8,21 @@ use PHPMailer\PHPMailer\Exception;
 //Load Composer's autoloader
 require '/home/cabox/workspace/vendor/autoload.php';
 
+// load .env file to get secret password
+$dotenv = new Dotenv\Dotenv('/home/cabox/workspace/');
+$dotenv->load();
+
+if(isset($_POST['send'])){
+// send welcome message process
+  
+ // set valiable from register form
+$name = $_POST["userName"];
+$email = $_POST["email"];
+$password = $_POST["password"];
+  
+ sendWelcomeMail($name, $email, $password);
+}
+
 function sendWelcomeMail($name, $email , $password){
   
 $htmlContent = '
@@ -19,13 +34,15 @@ $htmlContent = '
         <h1>Thanks you for joining with us!</h1>
         <table cellspacing="0" style="border: 2px solid #f3f3f3; width: 300px; height: 200px;">
             <tr>
-                <th>Name:</th><td>'. $name .'</td>
+                <th>User name:</th><td>'. $name .'</td>
             </tr>
-            <tr style="background-color: #e0e0e0;">
+            <tr>
                 <th>Password:</th><td>' . $password . '</td>
             </tr>
             <tr>
-                <th>Website:</th><td><a href="http://www.codexworld.com">http://advancedweb-clobooait383893.codeanyapp.com/Source/view/home.php</a></td>
+                <th>Website:</th>
+                <td><a href="http://advancedweb-clobooait383893.codeanyapp.com/Source/view/home.php">Cloboo</a>
+                </td>
             </tr>
         </table>
     </body>
@@ -39,12 +56,12 @@ try {
     $mail->Host = "smtp.gmail.com";  // Specify main and backup SMTP servers
     $mail->SMTPAuth = true;                               // Enable SMTP authentication
     $mail->Username = 'clobooait@gmail.com';                 // SMTP username
-    $mail->Password = 'cloboo123';                           // SMTP password
+    $mail->Password = getenv('GMAIL_PASSWORD');                           // SMTP password
     $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
     $mail->Port = 465;                                    // TCP port to connect to
 
     //Recipients
-    $mail->setFrom('clobooait@gmail.com', 'Mailer');
+    $mail->setFrom('clobooait@gmail.com', 'Cloboo');
     $mail->addAddress($email, 'New user');     // Add a recipient
 //     $mail->addAddress('ellen@example.com');               // Name is optional
 //     $mail->addReplyTo('info@example.com', 'Information');
