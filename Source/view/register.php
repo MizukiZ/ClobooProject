@@ -23,7 +23,7 @@
     <div class="register">
       <div class="container">
         <h3 class="animated wow zoomIn" data-wow-delay=".5s">Register Here</h3>
-        <p class="est animated wow zoomIn" data-wow-delay=".5s">Please enter a correct information for become our member and get discount now!</p>
+        <p class="est animated wow zoomIn" data-wow-delay=".5s">Please enter a correct information to become our member!</p>
         <div class="login-form-grids">
 
           <div id="message" class="alert alert-danger text-center" style="display:none;"></div>

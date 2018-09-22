@@ -32,7 +32,7 @@ include '../controller/book_detail_controller.php';
     <div class="single">
 		<div class="container">
 			<div class="col-md-12 single-right">
-				<div class="col-md-5 single-right-left animated wow slideInUp" data-wow-delay=".5s">
+				<div class="col-md-5 single-right-left animated wow slideInLeft" data-wow-delay=".5s">
 					<img src="../_asset/<?php echo $foundBook["image"];?>" height=450 width=300 alt="...">
 				</div>
 				<div class="col-md-7 single-right-left simpleCart_shelfItem animated wow slideInRight" data-wow-delay=".5s">
@@ -58,7 +58,7 @@ include '../controller/book_detail_controller.php';
 					</div>
 				</div>
 				<div class="clearfix"> </div>
-				<div class="bootstrap-tab animated wow slideInUp" data-wow-delay=".5s">
+				<div class="bootstrap-tab animated wow slideInLeft" data-wow-delay=".5s">
 					<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
 						<ul id="myTab" class="nav nav-tabs" role="tablist">
 							<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Description</a></li>
@@ -82,9 +82,9 @@ include '../controller/book_detail_controller.php';
 										<div class="bootstrap-tab-text-grid-right">
 											<ul>
 												<li><a href="#">Fang</a></li>
-												<li><a href="#"><span class="glyphicon glyphicon-share" aria-hidden="true"></span>Reply</a></li>
+												
 											</ul>
-											<p>Fast arrive and in good condition.</p>
+											<p>This feature is</p>
 										</div>
 										<div class="clearfix"> </div>
 									</div>
@@ -95,9 +95,9 @@ include '../controller/book_detail_controller.php';
 										<div class="bootstrap-tab-text-grid-right">
 											<ul>
 												<li><a href="#">Mizuki</a></li>
-												<li><a href="#"><span class="glyphicon glyphicon-share" aria-hidden="true"></span>Reply</a></li>
+											
 											</ul>
-											<p>Good products!!!!!!!</p>
+											<p>Under construction!</p>
 										</div>
 										<div class="clearfix"> </div>
 									</div>

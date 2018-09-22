@@ -1,5 +1,13 @@
 $(document).ready(function() {
   
+  // detect if this is after regiser login action
+    if (document.URL.indexOf('#firstLogin') > -1) {
+      // show register is done and send message to email address dialog
+      console.log("here")
+        jQuery.noConflict(); 
+        $("#welcomeModal").modal("show");
+    }
+  
     $("#logout").click(function() {
       // show logout modal
        jQuery.noConflict(); 
@@ -33,3 +41,6 @@ $(document).ready(function() {
   })
   
 })
+
+
+

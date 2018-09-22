@@ -36,6 +36,26 @@ $index = 1;
   </div>
 </div>
       
+     <!-- Modal for First login-->
+ <div class="modal fade" id="welcomeModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Hello <?php echo $_SESSION['current_user']['name'] ?>, Welcome to Cloboo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       Registration successfully completed. We send a message to your email address(<?php echo $_SESSION['current_user']['email'] ?>). Please check your account details.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+      
        <!-- Modal for loadin icon-->
   <div class="modal fade text-center" id="spinIcon" role="dialog">
   <i class="fa fa-spinner fa-spin"  style="font-size:88px; margin:20% 0 0 0;"></i>  
@@ -68,21 +88,25 @@ $index = 1;
   </div>
       
       <div class="header-grid">
-        <div class="header-grid-left animated wow slideInLeft" data-wow-delay=".5s">
-          <ul>
+        <div class="header-grid-left" style="width:100%">
+          <ul style="width:100%">
             <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:clobooait@gmail.com">clobooait@gmail.com</a></li>
             <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+61 xxx xxx xxx</li>
 
             <!-- toggle login and  logout button by current user status -->
-            <?php $user_loggedin = isset($_SESSION["current_user_email"]) ? true : false?>
+            <?php $user_loggedin = isset($_SESSION["current_user"]) ? true : false?>
 
             <li id="login" style="display:<?php echo $user_loggedin ? " none " : "inline " ?>"><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a href="../view/login.php">Login</a></li>
 
             <li id="logout" style="cursor: pointer; display:<?php echo $user_loggedin ? " inline " : "none " ?>"><i class="glyphicon glyphicon-log-out" aria-hidden="true"></i>Logout</li>
 
             <li id="registerNav" style="display:<?php echo $user_loggedin ? " none " : "inline " ?>"><i class="glyphicon glyphicon-book" aria-hidden="true"></i><a href="../view/register.php">Register</a></li>
-
+            
+            <li id="logout" style="float: right; display:<?php echo $user_loggedin ? " inline " : "none " ?>">
+             Hello <?php echo $_SESSION['current_user']['name'] ?> </li>
+            
           </ul>
+          
         </div>
       </div>
       <div class="logo-nav">
@@ -91,6 +115,7 @@ $index = 1;
         </div>
         <div class="logo-nav-left1">
           <nav class="navbar navbar-default">
+            
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header nav_2">
               <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">

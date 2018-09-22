@@ -26,8 +26,9 @@ if (mysqli_num_rows($result) > 0) {
     if (password_verify($password, $userData["password"])) {
       // password is validated
       
-       // set login user email
-       $_SESSION['current_user_email'] =  $userData["email"];
+       // set login user
+       // set login user info
+      $_SESSION['current_user'] = array("name" => $userData["user_name"], "email" => $userData["email"]);
       echo "validated";
       exit();
        

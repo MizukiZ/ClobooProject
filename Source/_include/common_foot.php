@@ -2,12 +2,12 @@
   <div class="footer">
     <div class="container">
       <div class="footer-grids">
-        <div class="col-md-3 footer-grid animated wow slideInLeft" data-wow-delay=".5s">
+        <div class="col-md-3 footer-grid">
           <h3>About Us</h3>
           <p>you can find all the books here!</span>
           </p>
         </div>
-        <div class="col-md-3 footer-grid animated wow slideInLeft" data-wow-delay=".6s">
+        <div class="col-md-3 footer-grid">
           <h3>Contact Info</h3>
           <ul>
             <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Level 13/120 Spencer St<span>Melbourne</span></li>
@@ -16,7 +16,7 @@
           </ul>
         </div>
 
-        <div class="col-md-3 footer-grid animated wow slideInLeft" data-wow-delay=".8s">
+        <div class="col-md-3 footer-grid">
           <h3>Feedback</h3>
           <div class="footer-grid-sub-grids">
             <div class="footer-grid-sub-grid-left">
@@ -41,10 +41,10 @@
         </div>
         <div class="clearfix"> </div>
       </div>
-      <div class="footer-logo animated wow slideInUp" data-wow-delay=".5s">
+      <div class="footer-logo">
         <h2><a href="../view/home.php">CloBoo <span>Reading is good thing</span></a></h2>
       </div>
-      <div class="copy-right animated wow slideInUp" data-wow-delay=".5s">
+      <div class="copy-right">
         <p>&copy;2018 CloBoo Book</p>
       </div>
 

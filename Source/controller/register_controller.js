@@ -34,7 +34,7 @@ $('#spinIcon').modal({
           
            $("#spinIcon").hide();
           // redirect to home
-          window.location.replace("http://advancedweb-clobooait383893.codeanyapp.com/Source/view/home.php");
+          window.location.replace("http://advancedweb-clobooait383893.codeanyapp.com/Source/view/home.php##firstLogin");
           return;
         }
       

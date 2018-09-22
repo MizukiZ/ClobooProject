@@ -45,8 +45,8 @@ $result = mysqli_query($database, $query);
        exit();
     } else {
      
-      // set login user name
-      $_SESSION['current_user_email'] =  $email;
+      // set login user info
+      $_SESSION['current_user'] = array("name" => $name, "email" => $email);
       echo "registered";
       exit();
     }

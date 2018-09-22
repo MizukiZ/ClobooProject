@@ -73,7 +73,7 @@ $typeArray = array("Electronic","Physical","Second hand");
       </div>
       <div class="col-md-10 products-right">
         <div class="products-right-grid" style="position:relative;z-index:10;">
-          <div class="products-right-grids animated wow slideInRight" data-wow-delay=".5s">
+          <div class="products-right-grids">
             
             <div class="row" style="padding:15px;">
               
@@ -118,7 +118,7 @@ $typeArray = array("Electronic","Physical","Second hand");
              <!-- add row opening tab -->
              <?php  if($index == 1 || $index%4==0) echo "<div class='row'>";?>
              <div class="col-md-4 new-collections-grid">
-              <div class="new-collections-grid1 animated wow slideInUp" data-wow-delay=".5s">
+              <div class="new-collections-grid1 animated wow slideInRight" data-wow-delay=".5s">
                 <div class="new-collections-grid1-image">
                   <a href="../view/book_detail.php?book_id=<?php echo $categoryBooks["id"]?>" class="product-image">
                   <img src="../_asset/<?php echo $categoryBooks['image']?>" alt=" " class="img-responsive" style="width:150px; height:220px"/></a>
@@ -134,7 +134,7 @@ $typeArray = array("Electronic","Physical","Second hand");
                 <h5>
                   <?php echo $typeArray[$categoryBooks['type_id']-1]?>
                 </h5>
-                <div class="new-collections-grid1-left simpleCart_shelfItem occasion-cart">
+                <div class="new-collections-grid1-left">
                                 <p>
 <!--                 if discount is applyed -->
                 <?php if($categoryBooks["discount_id"] != null):?>
