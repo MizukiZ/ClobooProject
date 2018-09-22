@@ -35,6 +35,7 @@ $(document).ready(function() {
         $("#login").css("display", "inline");
         $("#registerNav").css("display", "inline");
         $("#logout").hide();
+        $("#username").hide();
 
       })
 

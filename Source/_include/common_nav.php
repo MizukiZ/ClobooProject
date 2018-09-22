@@ -102,7 +102,7 @@ $index = 1;
 
             <li id="registerNav" style="display:<?php echo $user_loggedin ? " none " : "inline " ?>"><i class="glyphicon glyphicon-book" aria-hidden="true"></i><a href="../view/register.php">Register</a></li>
             
-            <li id="logout" style="float: right; display:<?php echo $user_loggedin ? " inline " : "none " ?>">
+            <li id="username" style="float: right; display:<?php echo $user_loggedin ? " inline " : "none " ?>">
              Hello <?php echo $_SESSION['current_user']['name'] ?> </li>
             
           </ul>

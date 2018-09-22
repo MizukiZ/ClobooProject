@@ -50,7 +50,7 @@ include '../controller/book_detail_controller.php';
             <p id="bookAut"><?php echo $foundBook["author"];?></p><br>
 					</div>
 					<div class="occasion-cart">
-            <a  id="addCart" class="item_add" onClick="addCart(<?php echo
+            <a  id="addCart" style="cursor:pointer" class="item_add" onClick="addCart(<?php echo
   $foundBook['id'] . ",'" // book id
   . str_replace("'","\'",$foundBook['title']) . "',"  // book title. *Escaping single quote
   . discountPrice($foundBook['cost'],$foundBook['discount_id']) . "," . // book cost

@@ -50,10 +50,19 @@ $htmlContent = '
     <html>
     <head>
         <title>Welcome to Cloboo</title>
+        <style>
+            .email{
+                background-image:url(letter2.png);
+                background-size:100%;
+                background-repeat: no-repeat;
+                text-align: center;
+                border-collapse: collapse;
+            }
+        </style>
     </head>
     <body>
         <h1>Thanks you for joining with us!</h1>
-        <table cellspacing="0" style="border: 2px solid #f3f3f3; width: 300px; height: 200px;">
+        <table class="email" cellspacing="0" style="border: 2px solid #f3f3f3; width: 300px; height: 200px;">
             <tr>
                 <th>User name:</th><td>' . $name . '</td>
             </tr>

@@ -99,7 +99,7 @@ $typeArray = array("Electronic","Physical","Second hand");
                 
                 <?php endif ?>
               </p>
-                <a  id="addCart" class="item_add" onClick="addCart(<?php echo
+                <a  id="addCart" style="cursor:pointer" class="item_add" onClick="addCart(<?php echo
   $dataRow['id'] . ",'" // book id
   . str_replace("'","\'",$dataRow['title']) . "',"  // book title. *Escaping single quote
   . discountPrice($dataRow['cost'],$dataRow['discount_id']) . "," . // book cost
@@ -148,7 +148,7 @@ $typeArray = array("Electronic","Physical","Second hand");
                 <?php endif ?>
               </p>
             <br> 
-             <a id="addCart" class="item_add" onClick="addCart(<?php echo
+             <a id="addCart" style="cursor:pointer" class="item_add" onClick="addCart(<?php echo
   $dataRow['id'] . ",'" // book id
   . str_replace("'","\'",$dataRow['title']) . "',"  // book title. *Escaping single quote
   . discountPrice($dataRow['cost'],$dataRow['discount_id']) . "," . // book cost
