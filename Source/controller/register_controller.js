@@ -24,17 +24,18 @@ $('#spinIcon').modal({
           // successfully registered
           
           //  send welcom email to registerd user
-          $.post("../_helper/WelcomeEmail.php",
-                $("#registerForm").serialize() + '&send=1'
+          $.post("../_helper/email.php",
+                $("#registerForm").serialize() + '&welcome=1'
                 )
-          .done(()=>{
+          .done((data)=>{
             // after send message do sth
+            console.log(data)
           })
           
            $("#spinIcon").hide();
           // redirect to home
           window.location.replace("http://advancedweb-clobooait383893.codeanyapp.com/Source/view/home.php");
-          return
+          return;
         }
       
       $('#spinIcon').modal('hide'); 

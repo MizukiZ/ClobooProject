@@ -43,10 +43,10 @@ $typeArray = array("Electronic","Physical","Second hand");
                     <li class="dropdown-header" style="font-size:18px;">Language</li>
                      <li role="separator" class="divider"></li>
                     
-                          <?php while ($categoryBooks = mysqli_fetch_array($languageRecods)): ?>
-                          <li>
-                            <a href="">
-                              <?php echo $categoryBooks["language_title"] ?>
+                          <?php while ($languageRecord = mysqli_fetch_array($languageRecods)): ?>
+                          <li onclick="addConditonAndRefresh('language' , '<?php echo $languageRecord["id"]?>');">
+                            <a>
+                              <?php echo $languageRecord["language_title"] ?>
                             </a>
                           </li>
                           <?php endwhile?>
@@ -56,10 +56,10 @@ $typeArray = array("Electronic","Physical","Second hand");
                     <li class="dropdown-header" style="font-size:18px;">Book type</li>
                      <li role="separator" class="divider"></li>
                     
-                          <?php while ($categoryBooks = mysqli_fetch_array($typeRecods)): ?>
-                          <li>
-                            <a href="">
-                              <?php echo $categoryBooks["type_title"] ?>
+                          <?php while ($typeRecord = mysqli_fetch_array($typeRecods)): ?>
+                          <li onclick="addConditonAndRefresh('type' , '<?php echo $typeRecord["id"]?>');">
+                            <a >
+                              <?php echo $typeRecord["type_title"] ?>
                             </a>
                           </li>
                           <?php endwhile?>
@@ -82,18 +82,29 @@ $typeArray = array("Electronic","Physical","Second hand");
           </h2>
               
        <!-- sort by dropdown menu -->
-        <div class="col-xs-3 btn-group col-xs-offset-6">
+        <div class="col-xs-2 btn-group col-xs-offset-4">
           <button type="button" class="btn btn-default">Sort by</button>
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="caret"></span>
             <span class="sr-only">Toggle Dropdown</span>
           </button>
           <ul class="dropdown-menu">
-            <li><a href="category.php?category_id=<?php echo $_GET['category_id']?>&category_title=<?php echo $_GET['category_title']?>&sortBy=sold_amount">Popularity</a></li>
-            <li><a href="category.php?category_id=<?php echo $_GET['category_id']?>&category_title=<?php echo $_GET['category_title']?>&sortBy=publish_date">Publish date</a></li>
-             <li><a href="category.php?category_id=<?php echo $_GET['category_id']?>&category_title=<?php echo $_GET['category_title']?>&sortBy=cost">Price</a></li>
+            <li onclick="addConditonAndRefresh('sortBy' , 'sold_amount');">
+              <a>Popularity</a>
+            </li>
+            <li onclick="addConditonAndRefresh('sortBy' , 'publish_date');">
+              <a>Publish date</a>
+            </li>
+             <li onclick="addConditonAndRefresh('sortBy' , 'cost');">
+               <a>Price</a>
+            </li>
           </ul>
         </div>
+              
+               <div class="col-xs-2">
+                 <button class="btn btn-danger" onclick="resetConditioin()">Reset Conditons</button>
+              </div>
+              
             </div>
           </div>
         </div>
@@ -160,8 +171,20 @@ $typeArray = array("Electronic","Physical","Second hand");
       </div>
     </div>
   </div>
+  
+<script type="text/javascript">
+    // pass stirng queries
+  
+    let categoryId="<?php echo $_GET['category_id'];?>";
+    let categoryTitle="<?php echo $_GET['category_title'];?>"
+    let languageId="<?php echo array_key_exists('language_id', $_GET) ? $_GET['language_id'] : '' ;?>"
+    let typeId="<?php echo array_key_exists('type_id', $_GET) ? $_GET['type_id'] : '' ;?>"
+    let sortBy="<?php echo array_key_exists('sortBy', $_GET) ? $_GET['sortBy'] : '' ; ?>"
+    
+  </script>
 
  <script> <?php include '../controller/cart_controller.js'; ?></script>
+ <script> <?php include '../controller/category_controller.js'; ?></script>
   
  <?php include'../_include/common_foot.php' ?>
   

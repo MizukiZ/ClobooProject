@@ -10,8 +10,8 @@
 <body>
   <?php include '../_include/common_nav.php';?>
   
-  <div class="container">
-    
+  <div class="banner animated wow slideInLeft" data-wow-delay=".5s">
+    <img src="../_asset/AITBanner.jpg" style="width:100%; height:100%"></img>
   </div>
   
   <?php include '../_include/common_foot.php';?>

@@ -78,7 +78,7 @@ $(document).ready(function() {
 
 let handler = StripeCheckout.configure({
   key: 'pk_test_0iLQxnoMSnz8brNv1VplvgY1',
-  image: '../_asset/logo_round.png',
+  image: '../_asset/logo4.png',
   token: function(token) {
    
     // send user data to php to process
@@ -92,6 +92,18 @@ let handler = StripeCheckout.configure({
 
       // go to thank you page
       window.location.replace("http://advancedweb-clobooait383893.codeanyapp.com/Source/view/thank.php");
+      
+      // send thank you message
+       $.post("../_helper/email.php",
+              {
+              purchase: 1,
+              cartData: cartData,
+              email: token.email
+              })
+          .done((data)=>{
+            // after send message do sth
+//          console.log(data)
+          })
     })
   }
 });
