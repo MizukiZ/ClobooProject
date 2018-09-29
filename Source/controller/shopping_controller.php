@@ -77,7 +77,7 @@ if(isset($_POST['del'])){
 if(isset($_SESSION['booksArray'])){
   
 foreach($_SESSION['booksArray'] as $book){
- $total += $book["cost"];
+ $total += $book["cost"] * $book['quantity'];
 }
   
 }

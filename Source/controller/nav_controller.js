@@ -27,7 +27,7 @@ $(document).ready(function() {
       .done((data) => {
         // hide dialog
          $("#logoutModal").modal("hide");
-      
+     
        // set 0 to cart number
       $(".itemCount").text(0)
       
@@ -36,12 +36,18 @@ $(document).ready(function() {
         $("#registerNav").css("display", "inline");
         $("#logout").hide();
         $("#username").hide();
+      
+      isUserLoggedIn = "false";
 
       })
 
   })
   
 })
+
+function shoppingCartIcon(){
+  console.log("heloo")
+}
 
 
 

@@ -36,6 +36,46 @@ $index = 1;
   </div>
 </div>
       
+             <!-- Modal for asking register-->
+ <div class="modal fade" id="pleaseRegiseterModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">Please register or login</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        To fully use Cloboo please <a href="http://advancedweb-clobooait383893.codeanyapp.com/Source/view/register.php">register</a>(free). if you have an account, Please <a href="http://advancedweb-clobooait383893.codeanyapp.com/Source/view/login.php">login</a>.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    <!-- Modal for asking to go to shopping cart-->
+ <div class="modal fade" id="pleaseGoToCartModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">You have added this book</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        You have added this book alreday. If you want this more than one, Please go to <a href="http://advancedweb-clobooait383893.codeanyapp.com/Source/view/shopping.php">cart page</a> and modify the quantity.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+      
      <!-- Modal for First login-->
  <div class="modal fade" id="welcomeModal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
@@ -170,3 +210,8 @@ $index = 1;
     </div>
   </div>
   <!-- //header -->
+
+<script type="text/javascript">
+    // pass if user is loggedin
+    let isUserLoggedIn="<?php echo $user_loggedin ? "true" : "false";?>";
+  </script>

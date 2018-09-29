@@ -1,5 +1,5 @@
-const tableHeader = "<tr><th>No</td><th>Title</th><th>Type</th><th>Cost</th><th></th></tr>"
-const tableTotal = "<tr><td style='font-weight: bold'>Total</td><td></td><td></td><td id='total' style='font-weight: bold'></td><td><button class ='btn btn-info' id='customButton'>Purchase</button></td></tr>"
+const tableHeader = "<tr><th>No</td><th>Title</th><th>Type</th><th>Cost</th><th>Quantity</th><th></th></tr>"
+const tableTotal = "<tr><td style='font-weight: bold'>Total</td><td></td><td></td><td id='total' style='font-weight: bold'></td><td></td><td><button class ='btn btn-info' id='customButton'>Checkout</button></td></tr>"
 
 const typeArray = ["Electronic", "Physical", "Second hand"]
 
@@ -31,46 +31,71 @@ function deleteItem(id) {
       dataType: "json"
     })
     .done((data) => {
-      $(".itemCount").text(data.length)
-      // update the table with new data
-    
-    $("#containMessage").text(data.length <= 1 ? "product" : "products")
-   
+      // update the table with new data  
       updateTable(data)
     })
+}
+
+// update total cost and item amount
+function updateTotals(data = []){
+
+ let total  =  {};
+  total.cost = 0;
+  total.item = 0;
+
+ 
+ if(data.length > 0){
+     data.forEach((book)=>{
+       total.cost += (parseFloat(book.cost) * book.quantity)
+       total.item += parseInt(book.quantity)
+     })
+    }
+  
+  let roundResult = Math.round(total.cost * 100) / 100
+  
+   // set total cost and amount
+  $("#total").text(total ? roundResult : 0)
+  $(".itemCount").text(total.item)
+  $("#containMessage").text(total.item <= 1 ? "product" : "products")
 }
 
 // dynamically generate cart table
 function updateTable(data = []) {
   // init inject html and tbody element
   let injectHtml = ``;
-  let total;
-  
   $("tbody").empty()
- 
- if(data.length > 0){
-    total = data.reduce((a, b) => {
-      // sum up the cost
-      return ({
-        cost: parseFloat(a.cost) + parseFloat(b.cost)
-      })
-    })
-    }
   
-  let roundResult = Math.round(total.cost * 100) / 100
- 
-
   // generate html
   data.forEach((book,index) => {
-    injectHtml += `<tr><td>${index + 1}</td><td><a href="../view/book_detail.php?book_id=${book.id}">${book.title}</a></td><td>${typeArray[book.type -1]}</td><td>${book.cost}</td><td><button class="btn btn-danger" onclick="deleteItem(${book.id})">Delete</button></td></tr>`
+    injectHtml += `<tr><td>${index + 1}</td><td><a href="../view/book_detail.php?book_id=${book.id}">${book.title}</a></td><td>${typeArray[book.type -1]}</td><td>${book.cost}</td><td><input  style="width:25%" name=${book.id} class="quantity" type="number" min="1" value=${book.quantity}></td><td><button class="btn btn-danger" onclick="deleteItem(${book.id})">Delete</button></td></tr>`
   })
 
   // insert
   $("tbody").append(injectHtml)
-  $("tbody").append(tableTotal)
-
-  // set total cost 
-  $("#total").text(total ? roundResult : 0)
+  
+  if(data.length > 0){
+     $("tbody").append(tableTotal)
+  }
+ 
+   updateTotals(data)
+  
+    $(".quantity").on("keyup keydown change click",(e) => {
+    id = e.target.name
+    quantity = e.target.value
+    
+    console.log("herer")
+     // change quaintity
+    $.ajax({
+      url: '../controller/cart_controller.php',
+      type: 'POST',
+      data: {book_id : id,quantity},
+      dataType: "json"
+    })
+    .done((data)=>{
+            // callback func
+      updateTotals(data)
+          })
+});
 }
 
 // payment methods (stripe)
@@ -125,5 +150,6 @@ document.getElementById('customButton').addEventListener('click', function(e) {
 window.addEventListener('popstate', function() {
   handler.close();
 });
+  
   
 })
