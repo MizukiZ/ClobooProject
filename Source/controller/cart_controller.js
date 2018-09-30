@@ -2,7 +2,7 @@
 //click event for cart logo click 
 $("#goCart").click(()=>{
   // get url 
-  fullUrl = window.location.href
+  const fullUrl = window.location.href
   
   if(isUserLoggedIn === "false"){
      

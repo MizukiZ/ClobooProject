@@ -3,7 +3,6 @@ $(document).ready(function() {
   // detect if this is after regiser login action
     if (document.URL.indexOf('#firstLogin') > -1) {
       // show register is done and send message to email address dialog
-      console.log("here")
         jQuery.noConflict(); 
         $("#welcomeModal").modal("show");
     }
@@ -44,10 +43,6 @@ $(document).ready(function() {
   })
   
 })
-
-function shoppingCartIcon(){
-  console.log("heloo")
-}
 
 
 

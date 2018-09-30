@@ -80,10 +80,9 @@ function updateTable(data = []) {
    updateTotals(data)
   
     $(".quantity").on("keyup keydown change click",(e) => {
-    id = e.target.name
-    quantity = e.target.value
+    let id = e.target.name
+    let quantity = e.target.value
     
-    console.log("herer")
      // change quaintity
     $.ajax({
       url: '../controller/cart_controller.php',
@@ -96,12 +95,9 @@ function updateTable(data = []) {
       updateTotals(data)
           })
 });
-}
-
-// payment methods (stripe)
-$(document).ready(function() {
-
-let handler = StripeCheckout.configure({
+  
+  // payment methods (stripe)
+  let handler = StripeCheckout.configure({
   key: 'pk_test_0iLQxnoMSnz8brNv1VplvgY1',
   image: '../_asset/logo4.png',
   token: function(token) {
@@ -132,8 +128,8 @@ let handler = StripeCheckout.configure({
     })
   }
 });
-
-document.getElementById('customButton').addEventListener('click', function(e) {
+  
+  document.getElementById('customButton').addEventListener('click', function(e) {
   
   let amount = $("#total").text() * 100;
   // Open Checkout with further options:
@@ -150,6 +146,5 @@ document.getElementById('customButton').addEventListener('click', function(e) {
 window.addEventListener('popstate', function() {
   handler.close();
 });
-  
-  
-})
+
+}

@@ -29,7 +29,6 @@ $('#spinIcon').modal({
                 )
           .done((data)=>{
             // after send message do sth
-            console.log(data)
           })
           
            $("#spinIcon").hide();

@@ -22,7 +22,7 @@ $(document).ready(function() {
   
 
   $("#titleSearch").on('input', () => {
-    value = $("#titleSearch").val()
+    const value = $("#titleSearch").val()
     
     $.ajax({
       url: '../controller/category_controller.php',
@@ -34,12 +34,12 @@ $(document).ready(function() {
       dataType: "json"
     })
       .done((data) => {
-        searchWord = value
+        let searchWord = value
         updateUI(data)
         updateChips()
       }).fail((e)=>{
       console.log(e)
-      searchWord = value
+      let searchWord = value
       updateChips()
     })
   })
@@ -49,7 +49,7 @@ const typeArray = ["Electronic", "Physical", "Second hand"]
 
 // condition obj 
 // set default value
-conditionObj = {
+let conditionObj = {
   language: languageId,
   type: typeId,
   sortBy: sortBy
@@ -60,7 +60,7 @@ conditionObj = {
 function addConditonAndRefresh(condition, value) {
 
   // category required query
-  categoryRequiredQuery = "/Source/view/category.php?category_id=" + categoryId + "&category_title=" + categoryTitle
+ let categoryRequiredQuery = "/Source/view/category.php?category_id=" + categoryId + "&category_title=" + categoryTitle
 
   if (condition == "language") {
     // if there is a language filer
@@ -78,7 +78,7 @@ function addConditonAndRefresh(condition, value) {
   }
 
   // condition query start with empty
-  conditionQuery = "";
+  let conditionQuery = "";
 
   if (conditionObj.language !== "") {
     // if not empty add string query
@@ -111,7 +111,7 @@ function resetConditioin() {
 }
 
 function updateUI(data = []) {
-  injectHtml = ``
+  let injectHtml = ``
 
   $("#categoryBody").empty()
 
@@ -126,7 +126,7 @@ function updateUI(data = []) {
     injectHtml += `</div><div class='row'>`
     }
    
-    priceSection = ``
+   let  priceSection = ``
     
     if(book.discount_id != "null"){
        priceSection += `<i>$${book.cost}</i><span class="item_price">$ ${discountPrice(book.cost,book.discount_id)}</span>`
@@ -155,13 +155,13 @@ function updateUI(data = []) {
 
 // discount price function
 function discountPrice(originalPrice, discountId){
-  discountArray = [5,10,15,20,25,30,35,40,45,50]
+ const discountArray = [5,10,15,20,25,30,35,40,45,50]
   
   if(discountId == null){
     return originalPrice
 }else{
-    dicountAmount = originalPrice * discountArray[discountId - 1] / 100
-   finalPrice = originalPrice - dicountAmount
+   let dicountAmount = originalPrice * discountArray[discountId - 1] / 100
+  const finalPrice = originalPrice - dicountAmount
 
   return Math.round(finalPrice * 100) / 100
   }
@@ -172,7 +172,7 @@ function updateChips(){
   
   $("#chipsRow").empty()
   
-  htmlBody = ``
+ let htmlBody = ``
   
   if(sortBy !== ""){
     htmlBody += `<span style="margin:10px; padding:10px" class="label label-primary">Sort by: ${sortBy}</span>`
