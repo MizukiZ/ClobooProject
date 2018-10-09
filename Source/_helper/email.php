@@ -100,6 +100,7 @@ global $htmlContent;
                 <th>Book title</th>
                 <th>Type</th>
                 <th>Price</th>
+                <th>Quantity</th>
             </tr>'
     . createCartDataTable($cardData) .
         '</table>
@@ -113,7 +114,7 @@ function createCartDataTable($cardData)
     $typeArray = array("Electronic", "Physical", "Second hand");
 
     foreach ($cardData as $data) {
-        $cartDataTableHtml .= '<tr><td>' . $data['title'] . '</td><td>' . $typeArray[$data['type'] - 1] . '</td><td>' . $data['cost'] . '</td></tr>';
+        $cartDataTableHtml .= '<tr><td>' . $data['title'] . '</td><td>' . $typeArray[$data['type'] - 1] . '</td><td>' . $data['cost'] . '</td><td>' . $data['quantity'] . '</td></tr>';
     }
 
     return $cartDataTableHtml;

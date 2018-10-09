@@ -27,11 +27,23 @@
     }
   </script>
   <!-- //for-mobile-apps -->
+
   <link href="../_style/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
   <link href="../_style/css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="../_style/css/reset.css" rel="stylesheet" type=text/css />
+  <link href="../_style/css/960.css" rel="stylesheet" type=text/css />
+  <link href="../_style/css/styles.css" rel="stylesheet" type=text/css />
+  <link href="../_js/fancybox/jquery.fancybox-1.3.4.css" rel="stylesheet" type="text/css" />
+
   <!-- js -->
   <script src="../_js/jquery.min.js"></script>
+  <script src="../_js/smooth-scroll.js"></script>
+  <script src="../_js/jquery.sticky.js"></script>
+  <script src="../_js/jquery.easing-1.3.pack.js"></script>
+  <script type="../_js/fancybox/javascript" src="fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+  <script type="text/javascript" src="../_js/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
   <!-- //js -->
+
   <!-- timer -->
   <link rel="stylesheet" href="../_style/css/jquery.countdown.css" />
   <!-- //timer -->

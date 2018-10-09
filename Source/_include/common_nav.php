@@ -187,8 +187,7 @@ $index = 1;
                   </ul>
                 </li>
 
-                <li><a href="../view/about.php">About Us</a></li>
-                <li><a href="../view/contact_us.php">Contact Us</a></li>
+                <li><a href="../view/about.php">About</a></li>
               </ul>
             </div>
           </nav>

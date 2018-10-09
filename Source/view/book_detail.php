@@ -42,13 +42,12 @@ include '../controller/book_detail_controller.php';
 					<h4><span class="item_price">$<?php echo discountPrice($foundBook['cost'],$foundBook['discount_id']);?></h4>
             
 					<div class="description">
-						<h3><i>Description</i></h3>
-						<p id="cookDes"><?php echo $foundBook["description"];?></p><br>
             <h3><i>Published Date</i></h3>
             <p id="bookDate"><?php echo $foundBook["publish_date"];?></p><br>
             <h3><i>Author</i></h3>
             <p id="bookAut"><?php echo $foundBook["author"];?></p><br>
 					</div>
+            
 					<div class="occasion-cart">
             <a  id="addCart" style="cursor:pointer" class="item_add" onClick="addCart(<?php echo
   $foundBook['id'] . ",'" // book id
@@ -57,61 +56,18 @@ include '../controller/book_detail_controller.php';
   $foundBook['type_id'] ; // book type id ?>);">add to cart</a>
 					</div>
 				</div>
+          
 				<div class="clearfix"> </div>
+          
 				<div class="bootstrap-tab animated wow slideInLeft" data-wow-delay=".5s">
 					<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
 						<ul id="myTab" class="nav nav-tabs" role="tablist">
 							<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Description</a></li>
-							<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Reviews(2)</a></li>
 						</ul>
 						<div id="myTabContent" class="tab-content">
 							<div role="tabpanel" class="tab-pane fade in active bootstrap-tab-text" id="home" aria-labelledby="home-tab">
 								<h5>Product Brief Description</h5>
 								<p><?php echo $foundBook["description"]?></p>
-                <h5><i>Published Date</i></h5>
-                <p id="bookDate"><?php echo $foundBook["publish_date"];?></p>
-                <h5><i>Author</i></h5>
-                <p id="bookAut"><?php echo $foundBook["author"];?></p>
-							</div>
-							<div role="tabpanel" class="tab-pane fade bootstrap-tab-text" id="profile" aria-labelledby="profile-tab">
-								<div class="bootstrap-tab-text-grids">
-									<div class="bootstrap-tab-text-grid">
-										<div class="bootstrap-tab-text-grid-left">
-											<img src="../_asset/corgi2.jpg" alt=" " class="img-responsive" />
-										</div>
-										<div class="bootstrap-tab-text-grid-right">
-											<ul>
-												<li><a href="#">Fang</a></li>
-												
-											</ul>
-											<p>This feature is</p>
-										</div>
-										<div class="clearfix"> </div>
-									</div>
-									<div class="bootstrap-tab-text-grid">
-										<div class="bootstrap-tab-text-grid-left">
-											<img src="../_asset/corgi3.jpg" alt=" " class="img-responsive" />
-										</div>
-										<div class="bootstrap-tab-text-grid-right">
-											<ul>
-												<li><a href="#">Mizuki</a></li>
-											
-											</ul>
-											<p>Under construction!</p>
-										</div>
-										<div class="clearfix"> </div>
-									</div>
-									<div class="add-review">
-										<h4>Add review</h4>
-										<form>
-											<input type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
-											<input type="email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-											<input type="text" value="Subject" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject';}" required="">
-											<textarea type="text"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>
-											<input type="submit" value="Send" >
-										</form>
-									</div>
-								</div>
 							</div>
 						</div>
 					</div>

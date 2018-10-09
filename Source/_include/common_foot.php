@@ -17,30 +17,14 @@
         </div>
 
         <div class="col-md-3 footer-grid">
-          <h3>Feedback</h3>
-          <div class="footer-grid-sub-grids">
-            <div class="footer-grid-sub-grid-left">
-              <a href="single.html"><img src="../_asset/steve.jpg" height="45px" alt=" " class="img-responsive" /></a>
-            </div>
-            <div class="footer-grid-sub-grid-right">
-              <h4><a href="single.html">I get the book really fast!</a></h4>
-              <p>Posted On 16/8/2018</p>
-            </div>
-            <div class="clearfix"> </div>
-          </div>
-          <div class="footer-grid-sub-grids">
-            <div class="footer-grid-sub-grid-left">
-              <a href="single.html"><img src="../_asset/steve.jpg" height="45px" alt=" " class="img-responsive" /></a>
-            </div>
-            <div class="footer-grid-sub-grid-right">
-              <h4><a href="single.html">I can find new book!</a></h4>
-              <p>Posted On 17/8/2018</p>
-            </div>
-            <div class="clearfix"> </div>
-          </div>
+          <h3>Map</h3>
+          <?php include '../_include/common_map.php';?>
+          <div class="clearfix"> </div>
         </div>
-        <div class="clearfix"> </div>
       </div>
+
+      <div class="clearfix"> </div>
+    </div>
       <div class="footer-logo">
         <h2><a href="../view/home.php">CloBoo <span>Reading is good thing</span></a></h2>
       </div>

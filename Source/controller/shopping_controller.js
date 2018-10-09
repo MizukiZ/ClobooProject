@@ -92,6 +92,7 @@ function updateTable(data = []) {
     })
     .done((data)=>{
             // callback func
+      cartData = data
       updateTotals(data)
           })
 });

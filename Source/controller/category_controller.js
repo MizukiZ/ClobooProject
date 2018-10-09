@@ -34,18 +34,19 @@ $(document).ready(function() {
       dataType: "json"
     })
       .done((data) => {
-        let searchWord = value
+         searchWord = value
         updateUI(data)
         updateChips()
       }).fail((e)=>{
       console.log(e)
-      let searchWord = value
+       searchWord = value
       updateChips()
     })
   })
 })
 
 const typeArray = ["Electronic", "Physical", "Second hand"]
+const sortArray = {"sold_amount":"Popularity", "publish_date":"Publish date", "cost":"Price"}
 
 // condition obj 
 // set default value
@@ -175,7 +176,7 @@ function updateChips(){
  let htmlBody = ``
   
   if(sortBy !== ""){
-    htmlBody += `<span style="margin:10px; padding:10px" class="label label-primary">Sort by: ${sortBy}</span>`
+    htmlBody += `<span style="margin:10px; padding:10px" class="label label-primary">Sort by: ${sortArray[sortBy]}</span>`
   }
   if(languageId !== ""){
     htmlBody += `<span style="margin:10px; padding:10px" class="label label-primary">Language: ${chosenLanguage}</span>`

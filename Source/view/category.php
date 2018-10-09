@@ -32,85 +32,57 @@ $categoryBooksArray = array();
 	</div>
   <!-- //breadcrumb -->
   
-
-  
   <div class="products" style="padding:3em 0 0 0;">
 		<div class="container">
       
-      <!--   criteria chips -->
-  <div id="chipsRow" class="row" style="margin:20px; font-size:22px;">
-  
-  </div>
-      
-      
-      <div class="col-md-2 products-left" style="z-index:3;">
+    <!--   criteria chips -->
+    <div id="chipsRow" class="row" style="margin:20px; font-size:22px;"></div>
+      <div class="col-md-3 products-left" style="z-index:3;">
+        <Input id="titleSearch" type="text" class="form-control" placeholder="search by title"
+               value=<?php echo array_key_exists('searchWord', $_SESSION) ? $_SESSION['searchWord'] : null?>> 
+        </Input>
         
-        <Input id="titleSearch" type="text" class="form-control" 
-               placeholder="search by title"
-               value=<?php echo array_key_exists('searchWord', $_SESSION) ? $_SESSION['searchWord'] : null?>> </Input>
-        
-        <div class="logo-nav-right animated wow zoomIn" data-wow-delay=".5s" style="z-index:4">
-          <nav class="navbar navbar-default">
-              <ul class="nav navbar-nav">
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Filter<b class="caret"></b></a>
-                  
-                  <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                          <!-- dynamic generate -->
-                          
-                    <li class="dropdown-header" style="font-size:18px;">Language</li>
-                     <li role="separator" class="divider"></li>
-                    
-                          <?php while ($languageRecord = mysqli_fetch_array($languageRecods)): ?>
-                    
-                         <?php 
-                      // set chosen language
-                         if(array_key_exists('language_id', $_GET)){
-                           if($_GET['language_id'] == $languageRecord["id"]){
-                             $chosenLanguage = $languageRecord["language_title"] ;
-                           }
-                          }
-                         ?>
-                    
-                          <li onclick="addConditonAndRefresh('language' , '<?php echo $languageRecord["id"]?>');">
-                            <a>
-                              <?php echo $languageRecord["language_title"] ?>
-                            </a>
-                          </li>
-                          <?php endwhile?>
-                      
-                 
-                          <!-- dynamic generate -->
-                    <li class="dropdown-header" style="font-size:18px;">Book type</li>
-                     <li role="separator" class="divider"></li>
-                    
-                          <?php while ($typeRecord = mysqli_fetch_array($typeRecods)): ?>
-                    
-                       <?php 
-                      // set chosen language
-                         if(array_key_exists('type_id', $_GET)){
-                           if($_GET['type_id'] == $typeRecord["id"]){
-                             $chosenType = $typeRecord["type_title"] ;
-                           }
-                          }
-                         ?>
-                    
-                          <li onclick="addConditonAndRefresh('type' , '<?php echo $typeRecord["id"]?>');">
-                            <a >
-                              <?php echo $typeRecord["type_title"] ?>
-                            </a>
-                          </li>
-                          <?php endwhile?>
-                       
-                 </ul>
-                  
-               </li>
-            </ul>
-          </nav>
+        <div class="categories animated wow slideInUp" data-wow-delay=".5s">
+					<h3>Filters</h3>
+					<ul class="cate">
+              <h4><strong>Language</strong></h4>
+              <li></li>
+                <ul>
+                  <?php while ($languageRecord = mysqli_fetch_array($languageRecods)): ?>
+                  <?php 
+                  // set chosen language
+                  if(array_key_exists('language_id', $_GET)){
+                    if($_GET['language_id'] == $languageRecord["id"]){
+                        $chosenLanguage = $languageRecord["language_title"] ;
+                    }
+                  }
+                  ?>
+                  <li onclick="addConditonAndRefresh('language' , '<?php echo $languageRecord["id"]?>');">
+                    <a><?php echo $languageRecord["language_title"] ?></a>
+                  </li>
+                  <?php endwhile?>
+              </ul>
+						<h4><strong>Book Type</strong></h4>
+            <li></li>
+							<ul>
+								<?php while ($typeRecord = mysqli_fetch_array($typeRecods)): ?>
+                  <?php 
+                  // set chosen language
+                  if(array_key_exists('type_id', $_GET)){
+                    if($_GET['type_id'] == $typeRecord["id"]){
+                        $chosenType = $typeRecord["type_title"] ;
+                    }
+                  }
+                ?>
+                <li onclick="addConditonAndRefresh('type' , '<?php echo $typeRecord["id"]?>');">
+                  <a><?php echo $typeRecord["type_title"] ?></a>
+                </li>
+                <?php endwhile?>
+					    </ul>
         </div>
       </div>
-      <div class="col-md-10 products-right">
+      
+      <div class="col-md-9 products-right">
         <div class="products-right-grid" style="position:relative;z-index:10;">
           <div class="products-right-grids">
             
@@ -226,7 +198,7 @@ $categoryBooksArray = array();
     </div>
   </div>
   
-<script type="text/javascript">
+  <script type="text/javascript">
     // pass stirng queries
     let categoryId="<?php echo $_GET['category_id'];?>";
     let categoryTitle="<?php echo $_GET['category_title'];?>"
@@ -237,7 +209,6 @@ $categoryBooksArray = array();
     let chosenLanguage = "<?php echo array_key_exists('language_id', $_GET) ? $chosenLanguage : "";?>"
     let chosenType = "<?php echo array_key_exists('type_id', $_GET) ? $chosenType : "";?>"
 
-   
     // pass books array to js file as categoryArray
     let categoryArray = <?php print_r(json_encode($categoryBooksArray));?>;
   </script>
@@ -245,7 +216,6 @@ $categoryBooksArray = array();
  <script> <?php include '../controller/cart_controller.js'; ?></script>
  <script> <?php include '../controller/category_controller.js'; ?></script>
 
-  
  <?php include'../_include/common_foot.php' ?>
   
 </body>
